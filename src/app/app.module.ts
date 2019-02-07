@@ -6,11 +6,25 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login'
 
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireModule } from 'angularfire2';
+import { UsuarioProvider } from '../providers/usuario/usuario';
+
+
+
+var config = {
+    apiKey: "AIzaSyDjP0oWZz93dkVzJ8GNyvRuiU8EI4GYUDU",
+    authDomain: "tracker-taxis-e9aa5.firebaseapp.com",
+    databaseURL: "https://tracker-taxis-e9aa5.firebaseio.com",
+    projectId: "tracker-taxis-e9aa5",
+    storageBucket: "tracker-taxis-e9aa5.appspot.com",
+    messagingSenderId: "804149833017"
+  };
 
 @NgModule({
   declarations: [
@@ -20,7 +34,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +49,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireAuth
+    UsuarioProvider
   ]
 })
 export class AppModule {}
