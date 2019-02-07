@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase  from 'firebase/app';
@@ -7,6 +7,8 @@ import * as firebase  from 'firebase/app';
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 
 import { HomePage } from '../home/home';
+
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 
 
@@ -28,12 +30,32 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private afAuth: AngularFireAuth,
-              public usuarioProv: UsuarioProvider) {
+              public usuarioProv: UsuarioProvider,
+              private fb: Facebook,
+              private platform: Platform) {
 
   }
 
 
   signInWithFacebook(){
+    if (this.platform.is('cordova')){
+        return this.fb.login(['email', 'public_profile']).then(res => {
+          const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+          return firebase.auth().signInWithCredential(facebookCredential).then(user => {
+            this.usuarioProv.cargarUsuario(
+              user.displayName,
+              user.email,
+              user.photoURL,
+              user.uid,
+              'facebook'
+            );
+            this.navCtrl.setRoot(HomePage);
+          }).catch(e => {
+            console.log("Error con el login" + JSON.stringify(e))
+          });
+        })
+
+    }else{
     this.afAuth.auth
     .signInWithPopup(new firebase.auth.FacebookAuthProvider())
   .then(res => {
@@ -50,6 +72,7 @@ export class LoginPage {
 
     this.navCtrl.setRoot(HomePage);
   });
+}
 }
 
   ionViewDidLoad() {

@@ -6,6 +6,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login'
 
+import { Facebook } from '@ionic-native/facebook/ngx';
+
+
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 
@@ -49,6 +52,7 @@ var config = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook,
     UsuarioProvider
   ]
 })
