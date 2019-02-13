@@ -16,14 +16,14 @@
     <ion-row>
       <ion-col class="top-5">
 
-        <button ion-button color="google" icon-left block type="button" name="button">
+        <button ion-button color="google" icon-left block type="button"(click)= "signInWithGoogle()">
           <ion-icon name="logo-google">
-            Google
+            Google 
           </ion-icon>
         </button>
 
         <button ion-button color="facebook"
-        icon-left block type="button" 
+        icon-left block type="button"
         (click)= "signInWithFacebook()">
           <ion-icon name="logo-facebook">
             Facebook

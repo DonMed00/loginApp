@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "804149833017",
+    "firebase_url": "https://tracker-taxis-e9aa5.firebaseio.com",
+    "project_id": "tracker-taxis-e9aa5",
+    "storage_bucket": "tracker-taxis-e9aa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804149833017:android:a77b0ef7769d4678",
+        "android_client_info": {
+          "package_name": "adrian.ionic.loginApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804149833017-47ksst20rrd9roufkd1egn8mtgslf370.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "adrian.ionic.loginApp",
+            "certificate_hash": "bfa958349fec09c4d6a7fea25153432f811ac5c3"
+          }
+        },
+        {
+          "client_id": "804149833017-21ribco5qpgrcgukst0pcbpqsji8dr39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiTZznhWEpmyIMCSqGf6c8vjWYlqX2sP0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804149833017-21ribco5qpgrcgukst0pcbpqsji8dr39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
